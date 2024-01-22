@@ -78,10 +78,68 @@ namespace GetWordDocWebAPI.Controllers
             return File(memoryStream.ToArray(), "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "YourDocument.docx");
         }
 
+        /*
+         
+        namespace GetWordDocWebAPI.Controllers
+{
+    [ApiController]
+    [Route("[controller]")]
+    public class WeatherForecastController : ControllerBase
+    {
+        private static readonly string[] Summaries = new[]
+        {
+            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+        };
+
+        private readonly ILogger<WeatherForecastController> _logger;
+
+        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        {
+            _logger = logger;
+        }
+
+        [HttpGet(Name = "GetWeatherForecast")]
+        public IEnumerable<WeatherForecast> Get()
+        {
+            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            {
+                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
+                TemperatureC = Random.Shared.Next(-20, 55),
+                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+            })
+            .ToArray();
+        }
+
+
+        [HttpGet]
+        [Route("api/documents/word")]
+        public IActionResult GetWordDocument()
+        {
+           // string filePath = Path.Combine(_env.WebRootPath, "App_Data", "YourDocument.docx");
+            string filePath = "C:\\templates\\template1_4.dot";
+           // DocumentModel model = new DocumentModel("C:\\templates\\template1_4.dot");
+
+            if (System.IO.File.Exists(filePath))
+            {
+                return PhysicalFile(filePath, "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "YourDocument.docx");
+            }
+            else
+            {
+                return NotFound("Document not found");
+            }
+        }
+    }
+
+ 
+}
+
+
+         */
+
 
 
 
     }
 
- 
+
 }
